@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+    <%= link_to t('spree_gallery.title'), spree.admin_galleries_url %> /
+  <%= t('spree_gallery.new_gallery') %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to t('spree_gallery.back_to_galleries'), spree.admin_galleries_path, icon: 'arrow-left' %>
+<% end %>
+
+<%= render 'spree/shared/error_messages', target: @gallery %>
+
+<%= form_for [:admin, @gallery] do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/new_resource_links' %>
+  </fieldset>
+<% end %>

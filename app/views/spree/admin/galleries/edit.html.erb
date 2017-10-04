@@ -1,0 +1,51 @@
+<% content_for :page_title do %>
+    <%= link_to t('spree_gallery.title'), spree.admin_galleries_url %> /
+    <%= @gallery.name %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <%= button_link_to t('spree_gallery.back_to_galleries'), spree.admin_galleries_path, icon: 'arrow-left' %>
+<% end %>
+
+<%= render partial: 'spree/admin/shared/error_messages', locals: {target: @gallery} %>
+
+<%= form_for [:admin, @gallery] do |f| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          <%= t('spree_gallery.items') %>
+        </h1>
+      </div>
+      <div class="panel-body">
+        <%= render partial: 'form', locals: {f: f} %>
+      </div>
+      <div class="panel-footer text-center">
+        <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+      </div>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= text_field_tag 'search_product' %>
+  </div>
+  <div class="col-md-6">
+    <%= button_link_to t('spree_gallery.add_item'), "javascript:;", {
+        icon: 'add',
+        id: 'add_product',
+        class: 'btn-success',
+        'data-route': classify_api_v1_gallery_items_path
+    }
+    %>
+  </div>
+</div>
+
+<div class="taxon-products-view">
+  <div class="form-group">
+    <%= hidden_field :gallery, :id %>
+  </div>
+
+  <ul id="gallery_products" class="taxon" data-items-route="<%= sort_api_v1_gallery_items_path %>" data-products-route="<%= api_v1_gallery_products_path %>"></ul>
+
+  <%= render partial: "spree/admin/galleries/product_template" %>
+</div>

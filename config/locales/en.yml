@@ -1,0 +1,11 @@
+en:
+  spree_gallery:
+    config_name: "Galleries"
+    config_description: "Manage Spree Gallery contents"
+    title: "Galleries"
+    new_gallery: "New Gallery"
+    editing_gallery: "Editing Gallery"
+    back_to_galleries: "Back to Galleries"
+    items: "Items"
+    add_item: "New item"
+    delete_from_gallery: "Delete from gallery"
