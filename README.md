@@ -39,7 +39,6 @@ require 'spree_gallery/factories'
 To-do
 --------
 
-* Add a "published" state
 * Add Multi Domain Store support
 * Make texts translatable
 * More tests

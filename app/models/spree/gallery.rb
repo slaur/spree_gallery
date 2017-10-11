@@ -8,4 +8,6 @@ class Spree::Gallery < ActiveRecord::Base
 
   validates :name, presence: true
   validates :title, presence: true
+
+  scope :published, -> { where(published: true) }
 end
