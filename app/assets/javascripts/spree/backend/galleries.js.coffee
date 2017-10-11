@@ -28,12 +28,12 @@ $(document).ready ->
           $('#gallery_items').html("<div class='alert alert-info'>" + Spree.translations.no_results + "</div>")
         else
           for product in data.products
-            if product.master.images[0] != undefined && product.master.images[0].small_url != undefined
-              product.image = product.master.images[0].small_url
+            if product.master.images[0] != undefined && product.master.images[0].medium_url != undefined
+              product.image = product.master.images[0].medium_url
             else
               for variant in product.variants
-                if variant.images[0] != undefined && variant.images[0].small_url != undefined
-                  product.image = variant.images[0].small_url
+                if variant.images[0] != undefined && variant.images[0].medium_url != undefined
+                  product.image = variant.images[0].medium_url
                   break
             el.append(galleryProductTemplate({product: product}))
 

@@ -1,5 +1,5 @@
-<script type='text/template' id='gallery_product_template'>
-  <li id='product_{{ product.id }}' data-product-id='{{ product.id }}' class='product'>
+<script type="text/template" id="gallery_product_template">
+  <li id="product_{{ product.id }}" data-product-id="{{ product.id }}" class="product">
     <a class="sort-handle js-sort-handle"><span class="icon icon-move"></span></a>
     <div class="btn-group">
       <a href="javascript:;"
@@ -9,11 +9,11 @@
         <span class="icon icon-delete"></span>
       </a>
     </div>
-    <div class='image'>
-        {{#if product.image }}
-      <img src='{{product.image}}' alt='{{ product.name }}' class='thumbnail' />
-        {{ else }}
-      <img src='<%= image_path("noimage/medium.png") %>' alt='{{product.name }}' class='thumbnail' />
+    <div class="image">
+        {{#if product.image}}
+      <img src="{{ product.image }}" alt="{{ product.name }}" class="thumbnail" />
+        {{else}}
+      <img src="<%= image_path('noimage/medium.png') %>" alt="{{ product.name }}" class="thumbnail" />
         {{/if}}
     </div>
     <div class="product-info">
