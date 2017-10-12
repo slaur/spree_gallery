@@ -1,12 +1,16 @@
 en:
   spree_gallery:
+    attributes: "Attributes"
     config_name: "Galleries"
     config_description: "Manage Spree Gallery contents"
     title: "Galleries"
     new_gallery: "New Gallery"
     editing_gallery: "Editing Gallery"
     back_to_galleries: "Back to Galleries"
-    items: "Items"
-    add_item: "New item"
+    add_item: "Add item"
     delete_from_gallery: "Delete from gallery"
     published: "Published"
+    upload_items_title: "Upload a list of products references"
+    upload_items_action: "Upload"
+    upload_error: "Gallery items not imported."
+    upload_results: "%{added} items added, %{existing} already in, %{not_found} not found."

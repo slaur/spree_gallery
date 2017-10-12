@@ -13,7 +13,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h1 class="panel-title">
-          <%= t('spree_gallery.items') %>
+          <%= t('spree_gallery.attributes') %>
         </h1>
       </div>
       <div class="panel-body">
@@ -24,6 +24,27 @@
       </div>
     </div>
 <% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">
+      <%= t('spree_gallery.upload_items_title') %> (CSV)
+    </h1>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <%= form_tag upload_items_admin_galleries_path, {multipart: true, class: 'form-inline'} do %>
+            <%= hidden_field_tag :id, @gallery.id %>
+            <div class="form-group">
+              <%= file_field_tag :upload_file, required: true, accept: 'text/csv' %>
+            </div>
+            <%= submit_tag t('spree_gallery.upload_items_action'), class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-6">
@@ -40,12 +61,12 @@
   </div>
 </div>
 
-<div class="taxon-products-view">
+<div class="gallery-products-view">
   <div class="form-group">
     <%= hidden_field :gallery, :id %>
   </div>
 
-  <ul id="gallery_products" class="taxon" data-items-route="<%= sort_api_v1_gallery_items_path %>" data-products-route="<%= api_v1_gallery_products_path %>"></ul>
+  <ul id="gallery_products" class="gallery" data-items-route="<%= sort_api_v1_gallery_items_path %>" data-products-route="<%= api_v1_gallery_products_path %>"></ul>
 
   <%= render partial: "spree/admin/galleries/product_template" %>
 </div>

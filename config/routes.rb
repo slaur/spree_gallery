@@ -1,6 +1,10 @@
 Spree::Core::Engine.routes.draw do
   namespace :admin do
-    resources :galleries
+    resources :galleries do
+      collection do
+        post :upload_items
+      end
+    end
   end
 
   namespace :api, defaults: {format: 'json'} do
