@@ -1,5 +1,5 @@
 $(document).ready ->
-  window.galleryProductTemplate = Handlebars.compile($('#gallery_product_template').text());
+  galleryProductTemplate = HandlebarsTemplates['galleries/product'];
   $('#gallery_products').sortable({
     handle: ".js-sort-handle"
   });
@@ -35,7 +35,7 @@ $(document).ready ->
                 if variant.images[0] != undefined && variant.images[0].medium_url != undefined
                   product.image = variant.images[0].medium_url
                   break
-            el.append(galleryProductTemplate({product: product}))
+            el.append(galleryProductTemplate({product: product, image_placeholder: Spree.assets_noimage_small}))
 
   $('#add_product').on "click", (e) ->
     search_el = $("#search_product")
@@ -52,7 +52,8 @@ $(document).ready ->
           token: Spree.api_key
         method: "POST",
         success: (data) ->
-          el.append(galleryProductTemplate({product: data.product}))
+          console.log(Spree.assets.noimage_small)
+          el.append(galleryProductTemplate({product: data.product, image_placeholder: Spree.assets_noimage_small}))
 
   $('#gallery_products').on "click", ".js-delete-product", (e) ->
     current_gallery_id = $("#gallery_id").val()
@@ -60,7 +61,7 @@ $(document).ready ->
     product_id = product.data("product-id")
 
     $.ajax
-      url: $(this).data('route'),
+      url: Spree.routes.remove_api_v1_gallery_items_path,
       data:
         gallery_id: current_gallery_id,
         product_id: product_id,
