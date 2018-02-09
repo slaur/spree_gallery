@@ -39,6 +39,5 @@ require 'spree_gallery/factories'
 To-do
 --------
 
-* Add Multi Domain Store support
 * Make texts translatable
 * More tests

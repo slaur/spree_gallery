@@ -20,14 +20,20 @@
         <%= f.error_message_on :description %>
     <% end %>
   </div>
-  <div class="col-xs-12 col-md-6">
-    <%= f.field_container :description, class: ['form-group'] do %>
-        <div class="checkbox">
-          <label>
-            <%= f.check_box :published %>
-            <%= t('spree_gallery.published') %>
-          </label>
-        </div>
+  <div class="col-xs-12 col-md-3">
+    <%= f.field_container :store_id, class: ['form-group'] do %>
+      <%= f.label :name, Spree.t(:store) %> <span class="required">*</span>
+      <%= f.collection_select(:store_id, Spree::Store.all, :id, :name, { include_blank: Spree.t('match_choices.none') }, { class: 'select2' }) %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <%= f.field_container :published, class: ['form-group'] do %>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :published %>
+          <%= t('spree_gallery.published') %>
+        </label>
+      </div>
     <% end %>
   </div>
 </div>
