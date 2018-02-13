@@ -19,7 +19,9 @@
       <% @galleries.each do |gallery| %>
           <tr>
             <td class="presentation"><%= gallery.name %></td>
-            <td class="presentation"><%= gallery.store.name %></td>
+            <td class="presentation">
+              <%= gallery.store.name if gallery.store%>
+            </td>
             <td data-hook="admin_galleries_index_row_actions" class="actions actions-2 text-right">
               <%= link_to_edit gallery, no_text: true, class: 'edit' %>
               <%= link_to_delete gallery, no_text: true %>

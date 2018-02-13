@@ -5,6 +5,12 @@ feature 'Galleries' do
 
   let(:gallery) {create(:gallery, name: 'Foo')}
 
+  scenario 'index' do
+    # add galleries with and without store
+    visit spree.admin_galleries_path()
+    expect(page.status_code).to be(200)
+  end
+
   scenario 'admin should be able to edit gallery' do
     visit spree.edit_admin_gallery_path(gallery)
 
